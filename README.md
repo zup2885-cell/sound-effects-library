@@ -21,3 +21,9 @@ SHA-256：
 ```text
 0c12f268142f6b329e4d67514740cb0fbd6e8153dd4e84d676b26d44d4013307
 ```
+
+## 在线音效库（网页版）
+
+在浏览器里浏览、搜索、试听，并下载可直接导入剪映 / CapCut 的 MP3（320k）和 WAV：
+
+https://zup2885-cell.github.io/sound-effects-library/

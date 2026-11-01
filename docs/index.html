@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>短片剪辑转场音效库 · 在线试听下载</title>
+<meta name="description" content="172 个短片剪辑音效：嗖声、燃烧、闪光、上升、VHS 故障、氛围、纸张、转场。在线试听，单个下载 MP3/WAV，直接拖进剪映 / CapCut。">
+<style>
+:root{--bg:#0f1115;--panel:#181b22;--line:#262a33;--text:#e8eaf0;--sub:#9aa0ad;--acc:#ff5a36;--acc2:#ffb020;--wave:#3a3f4b}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif}
+a{color:inherit}
+header{position:sticky;top:0;z-index:5;background:rgba(15,17,21,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;gap:12px;padding:14px 0 10px;flex-wrap:wrap}
+h1{font-size:20px;margin:0;font-weight:700;letter-spacing:.5px}h1 b{color:var(--acc)}
+.stat{color:var(--sub);font-size:13px}
+.search{flex:1;min-width:200px;position:relative}
+.search input{width:100%;padding:10px 14px 10px 36px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:15px;outline:none}
+.search input:focus{border-color:var(--acc)}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.5}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:0 0 12px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--sub);cursor:pointer;font-size:14px;white-space:nowrap}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.tab i{font-style:normal;opacity:.7;margin-left:4px;font-size:12px}
+.guide{margin:16px 0;padding:14px 16px;border-radius:12px;background:linear-gradient(135deg,#2a1a14,#1c1b22);border:1px solid #3a2a22}
+.guide h2{font-size:16px;margin:0 0 6px}.guide ol{margin:0;padding-left:20px;color:#d8d3cc}.guide li{margin:2px 0}
+.bar{display:flex;align-items:center;gap:10px;justify-content:space-between;margin:8px 0 12px;flex-wrap:wrap}
+.bar .stat b{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--text);text-decoration:none;font-size:13px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--acc)}.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+.fmt{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}.fmt button{background:var(--panel);color:var(--sub);border:0;padding:7px 10px;font-size:13px;cursor:pointer}.fmt button.on{background:#2b303b;color:var(--text)}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;padding-bottom:40px}
+.card{display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.card.playing{border-color:var(--acc)}
+.play{flex:none;width:42px;height:42px;border-radius:50%;border:0;background:#262a33;color:#fff;cursor:pointer;display:grid;place-items:center}
+.card.playing .play{background:var(--acc)}
+.mid{flex:1;min-width:0}
+.nm{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.en{color:var(--sub);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wave{display:flex;align-items:center;gap:1px;height:26px;margin-top:4px;cursor:pointer}
+.wave span{flex:1;background:var(--wave);border-radius:1px;min-height:2px}
+.wave span.p{background:var(--acc2)}
+.meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:none}
+.dur{font-variant-numeric:tabular-nums;color:var(--sub);font-size:12px}
+.dl{padding:6px 10px;border-radius:8px;background:#2b303b;color:#fff;text-decoration:none;font-size:13px}
+.dl:hover{background:var(--acc)}
+.empty{color:var(--sub);text-align:center;padding:40px 0}
+footer{color:var(--sub);font-size:12px;text-align:center;padding:20px 0 40px;border-top:1px solid var(--line)}
+@media(max-width:560px){.list{grid-template-columns:1fr}h1{font-size:18px}.top{gap:8px}.stat.hide-m{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <div class="top">
+  <h1>🎬 转场<b>音效库</b></h1><span class="stat hide-m" id="total"></span>
+  <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+  <input id="q" type="search" placeholder="搜音效：嗖、火、闪光、VHS、whoosh…" autocomplete="off"></label>
+ </div>
+ <nav class="tabs" id="tabs"></nav>
+</div></header>
+<main class="wrap">
+ <section class="guide">
+  <h2>怎么用到剪映 / CapCut</h2>
+  <ol>
+   <li>点 ▶ 试听，选中后点「下载」（默认 MP3 320k，44.1/48kHz；要无损选 WAV）。</li>
+   <li><b>电脑版剪映</b>：把下载的文件直接拖到时间线的音频轨道上；或者 <b>导入 → 本地</b> 选文件，再拖到轨道。</li>
+   <li><b>手机版剪映</b>：音频 → 音乐 → 导入音乐 → 本地音乐（或从「文件」里选）。</li>
+   <li>批量要的话，点上面的「打包下载」，解压后整个文件夹拖进剪映素材区。</li>
+  </ol>
+ </section>
+ <div class="bar">
+  <span class="stat" id="count"></span>
+  <span style="display:flex;gap:8px;flex-wrap:wrap">
+   <span class="fmt" id="fmt"><button data-f="mp3" class="on">MP3</button><button data-f="wav">WAV</button></span>
+   <a class="btn pri" id="zip" href="#" download>⬇ 打包下载</a>
+  </span>
+ </div>
+ <div class="list" id="list"></div>
+</main>
+<footer class="wrap">音效来自 <a href="https://github.com/zup2885-cell/sound-effects-library/releases">原始压缩包（Releases）</a> · 打包下载为 MP3；完整 WAV 原包请去 Releases</footer>
+<script>
+const $=s=>document.querySelector(s);
+const PLAY='<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg>';
+const PAUSE='<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
+let D,cat='all',fmt=localStorage.fmt||'mp3',cur=null;const audio=new Audio();audio.preload='none';
+const fmtDur=s=>s<60?s.toFixed(1)+' 秒':Math.floor(s/60)+':'+String(Math.round(s%60)).padStart(2,'0');
+const mb=b=>(b/1048576).toFixed(b<1048576?2:1)+' MB';
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+fetch('sounds.json').then(r=>r.json()).then(d=>{D=d;D.catName=Object.fromEntries(d.cats.map(c=>[c.id,c.name]));
+ $('#total').textContent=`共 ${d.items.length} 个音效 · ${d.cats.length} 个分类`;
+ $('#tabs').innerHTML=`<button class="tab on" data-c="all">全部<i>${d.items.length}</i></button>`+d.cats.map(c=>`<button class="tab" data-c="${c.id}">${c.name}<i>${c.count}</i></button>`).join('');
+ const h=decodeURIComponent(location.hash.slice(1));if(d.cats.some(c=>c.id===h))cat=h;
+ setFmt(fmt);render();});
+$('#tabs').onclick=e=>{const b=e.target.closest('.tab');if(!b)return;cat=b.dataset.c;history.replaceState(null,'',cat==='all'?location.pathname:'#'+cat);render();};
+$('#q').oninput=render;
+$('#fmt').onclick=e=>{const b=e.target.closest('button');if(b)setFmt(b.dataset.f)};
+function setFmt(f){fmt=f;localStorage.fmt=f;document.querySelectorAll('#fmt button').forEach(b=>b.classList.toggle('on',b.dataset.f===f));if(D)render();}
+function render(){
+ document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.c===cat));
+ const q=$('#q').value.trim().toLowerCase();
+ const its=D.items.filter(i=>(cat==='all'||i.cat===cat)&&(!q||(i.name+' '+i.zh+' '+D.catName[i.cat]).toLowerCase().includes(q)));
+ const z=cat==='all'?{zip:D.allZip,zipSize:D.allZipSize,name:'全部'}:D.cats.find(c=>c.id===cat);
+ $('#zip').href=z.zip;$('#zip').textContent=`⬇ 打包下载${cat==='all'?'全部':'「'+z.name+'」'} MP3 (${mb(z.zipSize)})`;
+ $('#zip').setAttribute('download',(cat==='all'?'转场音效库-全部':'转场音效库-'+z.name.replace('/','-'))+'.zip');
+ $('#count').innerHTML=`显示 <b>${its.length}</b> 个${q?`（搜索“${esc(q)}”）`:''}`;
+ $('#list').innerHTML=its.length?its.map(i=>`<div class="card${cur&&cur.id===i.id?' playing':''}" data-id="${i.id}">
+  <button class="play" aria-label="试听 ${esc(i.zh)}">${cur&&cur.id===i.id&&!audio.paused?PAUSE:PLAY}</button>
+  <div class="mid"><div class="nm" title="${esc(i.zh)}">${esc(i.zh)}</div><div class="en" title="${esc(i.name)}">${esc(i.name)} · ${D.catName[i.cat]}</div>
+  <div class="wave">${i.peaks.map(p=>`<span style="height:${Math.max(8,p)}%"></span>`).join('')}</div></div>
+  <div class="meta"><span class="dur">${fmtDur(i.dur)}</span>
+  <a class="dl" href="${i[fmt]}" download="${esc(i.name)}.${fmt}" title="${fmt.toUpperCase()} · ${i.sr/1000}kHz · ${mb(i[fmt+'Size'])}">下载 ${fmt.toUpperCase()}</a></div></div>`).join(''):'<div class="empty">没找到，换个关键词试试（比如：嗖、火、whoosh、glitch）</div>';
+ paint();}
+$('#list').onclick=e=>{const c=e.target.closest('.card');if(!c||e.target.closest('.dl'))return;const it=D.items.find(i=>i.id===c.dataset.id);
+ const w=e.target.closest('.wave');
+ if(!cur||cur.id!==it.id){cur=it;audio.src=it.mp3;audio.currentTime=0;}
+ if(w){const r=w.getBoundingClientRect();const t=(e.clientX-r.left)/r.width*it.dur;audio.currentTime=Math.max(0,Math.min(it.dur-.05,t));audio.play();}
+ else if(audio.paused)audio.play();else audio.pause();
+ sync();};
+function sync(){document.querySelectorAll('.card').forEach(c=>{const on=cur&&c.dataset.id===cur.id;c.classList.toggle('playing',on);c.querySelector('.play').innerHTML=on&&!audio.paused?PAUSE:PLAY;});paint();}
+function paint(){document.querySelectorAll('.card').forEach(c=>{const on=cur&&c.dataset.id===cur.id;const f=on&&audio.duration?audio.currentTime/audio.duration:0;const s=c.querySelectorAll('.wave span');s.forEach((x,k)=>x.classList.toggle('p',on&&k/s.length<f));});}
+audio.ontimeupdate=paint;audio.onplay=audio.onpause=audio.onended=sync;
+document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement!==$('#q')){e.preventDefault();$('#q').focus();}});
+</script>
+</body>
+</html>
